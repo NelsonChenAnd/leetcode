@@ -1,8 +1,6 @@
 import junit.framework.TestCase;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * 功能描述：
@@ -15,9 +13,28 @@ public class Test extends TestCase {
     public void testArrayList() {
 
         List<List<Integer>> allrows = new ArrayList<List<Integer>>();
-        List<Integer> row = new ArrayList<Integer>();
+        List<Integer> row = new LinkedList<>();
+        row.add(1);
+        row.add(2);
+        row.add(3);
+        row.add(4);
+        row.add(5);
 
-        for(int i=0;i<5;i++) {
+        int num = 3;
+        int index=0;
+
+        while(row.size()!=0) {
+
+            for(int i=1; i<num; i++) {
+                index = index % row.size();
+                index++;
+                if(index == row.size()) {
+                    index=0;
+                }
+            }
+
+            row.remove(index);
+            System.out.println(row + "\t" + index);
         }
     }
 
@@ -26,7 +43,12 @@ public class Test extends TestCase {
         StringBuffer buffer = new StringBuffer();
         buffer.append("hello");
         buffer.reverse();
-        System.out.println(buffer.substring(20));
+        System.out.println(buffer);
+        char[] cs = buffer.toString().toCharArray();
+        System.out.println(cs.length);
+        for(char c: cs) {
+            System.out.println("ccc=>" + c);
+        }
     }
 
 
@@ -42,5 +64,23 @@ public class Test extends TestCase {
         }
         return sum-(nums.length)*(nums.length-1)/2;
     }
+
+    public void testPriorityQueue() {
+        PriorityQueue<Integer> queue = new PriorityQueue<Integer>(new Comparator<Integer>() {
+            public int compare(Integer o1, Integer o2) {
+                return o2-o1;
+            }
+        });
+
+        queue.add(1);
+        queue.add(23);
+        queue.add(22);
+        while(!queue.isEmpty()) {
+            int x = queue.remove();
+            System.out.println(x);
+        }
+        System.out.println(queue);
+    }
+
 
 }
