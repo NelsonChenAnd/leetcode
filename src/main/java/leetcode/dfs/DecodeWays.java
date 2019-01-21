@@ -16,7 +16,7 @@ public class DecodeWays {
      * 需要考虑一些特殊情况，比如
      * 1.0的处理，
      * 2.字符串如果为空的处理
-     * @param  String s          给定数字编码
+     * @param   s          给定数字编码
      * @return       有多少个编码
      */
     public int numDecodings(String s) {

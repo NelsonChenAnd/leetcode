@@ -13,6 +13,7 @@ public class Test extends TestCase {
     public void testArrayList() {
 
         List<List<Integer>> allrows = new ArrayList<List<Integer>>();
+        HashMap<String, Integer> map = new HashMap<>();
         List<Integer> row = new LinkedList<>();
         row.add(1);
         row.add(2);
@@ -49,6 +50,7 @@ public class Test extends TestCase {
         for(char c: cs) {
             System.out.println("ccc=>" + c);
         }
+        System.out.println((Integer.MAX_VALUE+"").length());
     }
 
 
@@ -80,6 +82,17 @@ public class Test extends TestCase {
             System.out.println(x);
         }
         System.out.println(queue);
+        Integer[] a = new Integer[2];
+        Arrays.sort(a, new MyComparator());
+        Arrays.asList(a);
+    }
+
+    class MyComparator implements Comparator<Integer> {
+
+        @Override
+        public int compare(Integer a, Integer b) {
+            return b-a;
+        }
     }
 
 
